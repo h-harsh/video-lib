@@ -38,4 +38,83 @@
   }
 }
 
+/* home banner */
+.banner-imgs{
+  width: 90%;
+  height: 500px;
+  opacity: 0.6;
+  position: relative;
+}
+.banner-text{
+  position: absolute;
+  top: 13rem;
+  left: 5rem;
+  right: 5rem;
+  font-size: 3rem;
+}
+
+/* nav bar */
+.nav-bar{
+  background-color:#00416A;
+}
+
+/* Video card list */
+
+.video-card-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-card{
+  display: inline-flex;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 65%;
+  margin: 1rem;
+  background-color: whitesmoke;
+}
+.video-card:hover{
+  box-shadow: 1rem 1.5rem gainsboro;
+}
+.play-btn{
+  background-color: #E4E5E6;
+  padding: 0.7rem 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  
+}
+
+/* video detail page */
+.sub-det-1{
+  float: left;
+  margin-left: 5rem;
+}
+.sub-det-2{
+  float: right;
+  margin-right: 10rem;
+}
+.auth-img{
+  border-radius: 50%;
+  width: 3.5rem;
+  margin-left: 2rem;
+  float: left;
+}
+.auth-name{
+  float: left;
+  font-size: 1.5rem;
+}
+.video-title{
+  font-size: 2.5rem;
+}
+.extra-vid{
+  font-size: 1.3rem;
+}
+
+.main-title{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 4.5rem;
+  color: white;
+}
 

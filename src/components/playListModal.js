@@ -32,7 +32,7 @@ export const Modale = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button  type="primary" onClick={showModal}>
         Add to play list
       </Button>
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -73,7 +73,7 @@ export const Modale = () => {
 export const RemoveFromPlayListButton = ({videoId, playlist_name}) => {
   const { state, dispatch } = useContext(PlayListContext);
   return(
-    <button
+    <button className="play-btn"
     onClick={() =>dispatch({type:"REMOVE_FROM_PLAYLIST", payload: playlist_name, payload2: videoId}) }
     >Remove</button>
   )

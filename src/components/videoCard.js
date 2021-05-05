@@ -14,13 +14,14 @@ export const VideoCard = ({
     playlist_name
 }) => {
     return (
-        <div>
+        <div className="video-card">
             <div>
-                <img src={thumbnail} />
+                <img src={thumbnail} alt="" />
             </div>
             <div>
-            <h2>{title}</h2>
-            {<Link to={`/${videoId}`}> Play </Link>}
+            <h2 style={{marginLeft: "1rem"}} >{title}</h2>
+            <h3 style={{float: 'left', marginLeft: "1rem"}}> >{author}</h3>
+            {<Link to={`/${videoId}`} className="play-btn" > Watch </Link>}
             {remove && <RemoveFromPlayListButton videoId={videoId} playlist_name={playlist_name} />}
             </div>
             
