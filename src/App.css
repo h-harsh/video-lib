@@ -67,10 +67,10 @@
 }
 
 .video-card{
-  display: inline-flex;
+  display: block;
   border-radius: 1rem;
   padding: 1rem;
-  width: 65%;
+  width: 50rem;
   margin: 1rem;
   background-color: whitesmoke;
 }
@@ -83,7 +83,6 @@
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 0.5rem;
-  
 }
 
 /* video detail page */
@@ -116,5 +115,30 @@
   font-family: 'Courier New', Courier, monospace;
   margin-top: 4.5rem;
   color: white;
+}
+
+/* PLaylist page */
+.cta{
+  border-radius: 10%;
+  float: right;
+  padding: 0.4rem 0.8rem;
+}
+.playlist-name{
+  font-size: 1.5rem;
+}
+.page-title{
+  border-bottom: 1px solid black;
+  font-style: italic;
+  text-align: left;
+  margin-left: 5rem;
+}
+
+
+/* Modal */
+.playlist-item{
+  display: block;
+}
+.create-btn{
+  padding: 0.5rem 1rem;
 }
 

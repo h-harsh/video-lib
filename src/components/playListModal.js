@@ -39,7 +39,8 @@ export const Modale = () => {
         <div>
           <h3>Create a new playlist</h3>
           <input type="text" onChange={(event) => setPlayListName(event.target.value)} />
-          <button onClick={() => dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playListName })} >
+          <button onClick={() => dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playListName })}
+          className="create-btn" >
             Create
           </button>
         </div>
@@ -49,7 +50,7 @@ export const Modale = () => {
           {
             state.map(item => {
               return (
-                <label>
+                <label className="playlist-item" >
                   <input type="checkbox"
                     onChange={() => dispatch({
                       type: "ADD-VIDEO-TO-PLAYLIST",
@@ -73,7 +74,7 @@ export const Modale = () => {
 export const RemoveFromPlayListButton = ({videoId, playlist_name}) => {
   const { state, dispatch } = useContext(PlayListContext);
   return(
-    <button className="play-btn"
+    <button className="btn btn-link2 "
     onClick={() =>dispatch({type:"REMOVE_FROM_PLAYLIST", payload: playlist_name, payload2: videoId}) }
     >Remove</button>
   )

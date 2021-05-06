@@ -42,6 +42,8 @@ const reducerFunc = (state, {type, payload, payload2}) => {
     switch (type) {
         case "ADD_PLAY_LIST_NAME":
             return state =  [...state, {playlist_name: payload, videos: [] } ];
+        case "REMOVE_PLAYLIST":
+            return state = state.filter(item => item.playlist_name !== payload)    
         case "ADD-VIDEO-TO-PLAYLIST":
            return state =  state.map(playlist => {
                 if(playlist.playlist_name === payload ){
