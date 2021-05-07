@@ -14,7 +14,7 @@ export const VideoCard = ({
     playlist_name
 }) => {
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
+        <div className="main-out" >
         <Link to={`/${videoId}`} className="video-card" >
             <div>
                 <img src={thumbnail} alt="" />

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { data } from '../dataApi/data';
 import { Modale } from '../components/playListModal'
 
@@ -15,7 +15,7 @@ export const VideoDetails = () => {
         <div>
             <div style={{borderBottom: "2px solid black"}} >
                 <iframe width="1000" height="500"
-                    src={`https://www.youtube.com/embed/${video.videoId}`}
+                    src={`https://www.youtube.com/embed/${video.videoId}` }
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

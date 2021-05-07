@@ -142,3 +142,9 @@
   padding: 0.5rem 1rem;
 }
 
+/* Video card page */
+.main-out{
+    display: 'flex'; 
+    flex-direction: 'column';
+    justify-content: 'center';
+}

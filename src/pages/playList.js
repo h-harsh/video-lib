@@ -1,9 +1,8 @@
-import { useContext } from 'react'
 import { VideoCard } from '../components/videoCard'
-import { PlayListContext } from '../playListContext'
+import {usePlayList} from '../playListContext'
 
 export const PlayList = () => {
-    const { state, dispatch } = useContext(PlayListContext);
+    const { state, dispatch } = usePlayList()
 
     return (<div>
         <h1 className="page-title" >PlayLists</h1>
@@ -12,7 +11,7 @@ export const PlayList = () => {
                 return (
                 <div style={{ border: "1px solid black", margin: "1rem", display: 'inline-block' }}>
                     <button className="btn cta"
-                        onClick={() => dispatch({ type: "REMOVE_PLAYLIST", payload: item.playlist_name })}>
+                        onClick={() => dispatch({ type: "REMOVE_PLAYLIST", payload: { playlistName: item.playlist_name } })}>
                     X</button>
                     <h2 className="playlist-name" >{item.playlist_name}</h2>
                     {item.videos.map(item2 => {

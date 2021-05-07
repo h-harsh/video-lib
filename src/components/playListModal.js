@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
-import { PlayListContext } from '../playListContext'
 import '../App.css'
 import { data } from '../dataApi/data'
 import { useParams } from 'react-router';
+import {usePlayList} from '../playListContext'
 
 
 export const Modale = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { state, dispatch } = useContext(PlayListContext);
+  const { state, dispatch } = usePlayList()
   const [playListName, setPlayListName] = useState()
   const { videoId } = useParams();
 
@@ -32,15 +32,15 @@ export const Modale = () => {
 
   return (
     <>
-      <Button  type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal}>
         Add to play list
       </Button>
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <div>
           <h3>Create a new playlist</h3>
           <input type="text" onChange={(event) => setPlayListName(event.target.value)} />
-          <button onClick={() => dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playListName })}
-          className="create-btn" >
+          <button onClick={() => dispatch({ type: "ADD_PLAY_LIST_NAME", payload: { playlistName: playListName } })}
+            className="create-btn" >
             Create
           </button>
         </div>
@@ -54,8 +54,11 @@ export const Modale = () => {
                   <input type="checkbox"
                     onChange={() => dispatch({
                       type: "ADD-VIDEO-TO-PLAYLIST",
-                      payload: item.playlist_name,
-                      payload2: video
+                      payload:
+                      {
+                        playlistName: item.playlist_name,
+                        videoObj: video
+                      }
                     })}
                   />
                   {item.playlist_name}
@@ -71,11 +74,18 @@ export const Modale = () => {
 };
 
 
-export const RemoveFromPlayListButton = ({videoId, playlist_name}) => {
-  const { state, dispatch } = useContext(PlayListContext);
-  return(
+export const RemoveFromPlayListButton = ({ videoId, playlist_name }) => {
+  const { dispatch } = usePlayList()
+  return (
     <button className="btn btn-link2 "
-    onClick={() =>dispatch({type:"REMOVE_FROM_PLAYLIST", payload: playlist_name, payload2: videoId}) }
+      onClick={() => dispatch({
+        type: "REMOVE_FROM_PLAYLIST",
+        payload:
+        {
+          playlistName: playlist_name,
+          videoObj: videoId
+        }
+      })}
     >Remove</button>
   )
 }

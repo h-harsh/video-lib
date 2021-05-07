@@ -1,7 +1,4 @@
-import { Route, Routes, Link } from 'react-router-dom'
-import { VideoDetails } from '../pages/videoDetails'
-import { Home } from '../pages/homePage'
-import { PlayList } from '../pages/playList'
+import {  Link } from 'react-router-dom'
 
 export const NavBar = () => {
     return (<>
@@ -15,11 +12,6 @@ export const NavBar = () => {
                 <li className="nav-items"><Link to="/playlist" >PlayLists</Link></li>
             </ul>
         </div>
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:videoId" element={<VideoDetails />} />
-            <Route path="/playlist" element={<PlayList />} />
-        </Routes>
     </>)
 }
 
