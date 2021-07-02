@@ -1,28 +1,20 @@
-import { createContext, useReducer, useContext, useState, useEffect } from "react";
-import {reducerFunc} from './reducerFunction';
-import {defaultPlaylist} from './dataApi/data';
+import { createContext, useContext, useState } from "react";
 import axios from 'axios'
 import { useNavigate } from "react-router";
 
-export const PlayListContext = createContext();
+const AuthContext = createContext()
 
-export const PlayListProvider = ({children}) => {
+export const AuthProvider = ({children}) => {
     const savedToken = JSON.parse(localStorage.getItem("token")) ||  null;
-
     const [token, setToken] = useState(savedToken)
-    // const [isUserLogin, setLogin] = useState(loginStatus)
-
-    const [loginState, setLoginState] = useState("")
-
-    const[state, dispatch] = useReducer(reducerFunc, defaultPlaylist )
     const navigate = useNavigate()
     const baseurl = "http://127.0.0.1:8000"
-
+    const [loginState, setLoginState] = useState("")
+    
      const logoutHandler = () => {
         localStorage.removeItem("token")
         setToken(null)
         setLoginState("")
-        
     }
 
     const loginHandler  = async (userName, password) => {
@@ -33,7 +25,6 @@ export const PlayListProvider = ({children}) => {
             "Content-Type" : "application/json" 
          }
         })
-        console.log(response)
         setLoginState(response.data.status)
         if(response.data.status === "login success"){ 
             localStorage.setItem("token", JSON.stringify( response.data.token));
@@ -47,16 +38,13 @@ export const PlayListProvider = ({children}) => {
             console.log(error.response.data.status)
         }
     }
-
     return(
-        <PlayListContext.Provider value={{state, dispatch, token, loginState, loginHandler, logoutHandler}}>
+        <AuthContext.Provider value={{token, loginState, loginHandler, logoutHandler}}>
             {children}
-        </PlayListContext.Provider>
+        </AuthContext.Provider>
     )
 }
 
-export const usePlayList = () => {
-    return useContext(PlayListContext);
-  };
-
- 
+export const useAuth = () => {
+    return useContext(AuthContext);
+}

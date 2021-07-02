@@ -1,7 +1,9 @@
 import {VideoCard} from '../components/videoCard'
-import {data} from '../dataApi/data'
+import { usePlayList } from '../Contexts/playListContext'
 
 export const Home = () => {
+    const {allVideosData} = usePlayList()
+
     return(<div >
         <div style={{borderBottom: "1px solid black"}}>
             <img className="banner-imgs" 
@@ -11,9 +13,11 @@ export const Home = () => {
         </div>
         <h1>Videos</h1>
         <div className="video-card-cont" >
-        {data.map((item) => (
+        { allVideosData ?
+        allVideosData.map((item) => (
             <VideoCard {...item} />
-        ))}
+        )) : <h2>Loading</h2>
+        }
         </div>
     </div>)
 }

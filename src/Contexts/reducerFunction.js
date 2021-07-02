@@ -1,5 +1,7 @@
 export const reducerFunc = (state, {type, payload}) => {
     switch (type) {
+        case "INITIAL_LOAD":
+            return state = payload
         case "ADD_PLAY_LIST_NAME":
             return state =  [...state, {playlist_name: payload.playlistName, videos: [] } ];
         case "REMOVE_PLAYLIST":

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { usePlayList } from "../playListContext";
+import { useAuth } from "../Contexts/authContext";
 
 
 
@@ -7,7 +7,7 @@ export const LoginBox = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState("")
-    const {logoutHandler, loginHandler, loginState} = usePlayList()
+    const {logoutHandler, loginHandler, loginState} = useAuth()
 
     return(
         <>

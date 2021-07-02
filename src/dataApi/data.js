@@ -1,4 +1,4 @@
-export const data = [
+ const data = [
     {
         videoId: "QpdKIlZglmw",
         title: "Top 6 Books to Read on Finance & Business",
@@ -102,7 +102,7 @@ export const data = [
     }
 ]
 
-export const defaultPlaylist = [
+ const defaultPlaylist = [
     {
         playlist_name: "Watch Later", videos: [
             {

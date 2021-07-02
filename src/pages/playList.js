@@ -1,38 +1,40 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { VideoCard } from "../components/videoCard";
-import { usePlayList } from "../playListContext";
+import { VideoCard } from "../components/videoCard";
+import { usePlayList } from "../Contexts/playListContext";
+import { useAuth } from "../Contexts/authContext";
+import { deletePlaylistHandler, deleteVideoHandler } from "../utils/forApi";
 
 export const PlayList = () => {
-  const { state, dispatch, token, isUserLogin } = usePlayList();
-  const [playlistData, setPlaylistData] = useState(undefined);
-  const baseurl = "http://127.0.0.1:8000";
+  const { state, dispatch } = usePlayList();
+  const {token} = useAuth()
 
-  useEffect(() => {
-    (async function () {
-      if(token)
-      {
-        const response = await axios.get(`${baseurl}/playlist`, {
-          headers: { authorization: token },
-        });
-        console.group(response)
-        if (response.data.status === "success") {
-          setPlaylistData(response.data.playlistData);
-          console.log(playlistData)
-        } else {
-          setPlaylistData("error");
-        }
-      }
-    })();
-  }, [token]);
+  console.log(state)
   return (
     <>
       <h1 className="page-title">PlayLists</h1>
-      {playlistData === "error" && <h2>False authorization, please login</h2>}
-      {playlistData === undefined ? (
+      {state === "error" && <h2>False authorization, please login</h2>}
+      {state === undefined ? (
         <h2>Loading</h2>
       ) : (
-        <h2>Map on array data</h2>
+        state.map(item => {
+          return (
+            <>
+            <h2>{item.playlistName}</h2>
+            <button onClick={() => deletePlaylistHandler(item.playlistName, token)} >Delete playlist</button>
+
+            { item.videos.length > 0 ? 
+            item.videos.map(videoItem => {
+              return(<>
+                <h3>{videoItem.title}</h3>
+                <p>{videoItem.author}</p>
+                <button onClick={() => deleteVideoHandler(item.playlistName, videoItem._id, token)} >Remove videos</button>
+              </>)
+            }) : <h2>No Videos in playlist</h2>
+            }
+            </>
+          )
+        })
       )}
     </>
   );

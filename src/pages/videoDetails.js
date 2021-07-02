@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
-import { data } from '../dataApi/data';
 import { Modale } from '../components/playListModal'
+import { usePlayList } from "../Contexts/playListContext";
 
 export const VideoDetails = () => {
     const { videoId } = useParams();
+    const {allVideosData} = usePlayList()
 
     function getVideoDetails(videos, videoId) {
         return videos.find((video) => video.videoId === videoId);
     }
 
-    const video = getVideoDetails(data, videoId);
+    const video = getVideoDetails(allVideosData, videoId);
 
     return (
         <div>
