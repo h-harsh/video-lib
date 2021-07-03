@@ -6,10 +6,10 @@ import { useAuth } from "../Contexts/authContext";
 import { deletePlaylistHandler, deleteVideoHandler } from "../utils/forApi";
 
 export const PlayList = () => {
-  const { state, dispatch } = usePlayList();
-  const {token} = useAuth()
+  const { state, dispatch, token } = useAuth();
 
   console.log(state)
+
   return (
     <>
       <h1 className="page-title">PlayLists</h1>
@@ -17,23 +17,41 @@ export const PlayList = () => {
       {state === undefined ? (
         <h2>Loading</h2>
       ) : (
-        state.map(item => {
+        state.map((item) => {
           return (
             <>
-            <h2>{item.playlistName}</h2>
-            <button onClick={() => deletePlaylistHandler(item.playlistName, token)} >Delete playlist</button>
+              <h2>{item.playlistName}</h2>
+              <button
+                onClick={() => deletePlaylistHandler(item.playlistName, token, dispatch)}
+              >
+                Delete playlist
+              </button>
 
-            { item.videos.length > 0 ? 
-            item.videos.map(videoItem => {
-              return(<>
-                <h3>{videoItem.title}</h3>
-                <p>{videoItem.author}</p>
-                <button onClick={() => deleteVideoHandler(item.playlistName, videoItem._id, token)} >Remove videos</button>
-              </>)
-            }) : <h2>No Videos in playlist</h2>
-            }
+              {item.videos.length > 0 ? (
+                item.videos.map((videoItem) => {
+                  return (
+                    <>
+                      <h3>{videoItem.title}</h3>
+                      <p>{videoItem.author}</p>
+                      <button
+                        onClick={() =>
+                          deleteVideoHandler(
+                            item.playlistName,
+                            videoItem._id,
+                            token, dispatch
+                          )
+                        }
+                      >
+                        Remove videos
+                      </button>
+                    </>
+                  );
+                })
+              ) : (
+                <h2>No Videos in playlist</h2>
+              )}
             </>
-          )
+          );
         })
       )}
     </>

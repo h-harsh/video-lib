@@ -9,14 +9,11 @@ import { useAuth } from "../Contexts/authContext";
 
 export const Modale = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { state, dispatch, allVideosData } = usePlayList()
-  const { token } = useAuth();
+  const {  allVideosData } = usePlayList()
+  const { state, dispatch, token } = useAuth();
   const [playlistName, setPlaylistName] = useState("")
   const { videoId } = useParams();
-  const [playlistData, setPlaylistData] = useState(undefined);
-
-  
-  
+  // const [playlistData, setPlaylistData] = useState(undefined);
 
   // Getting video details
   function getVideoDetails(videos, videoId) {
@@ -36,7 +33,7 @@ export const Modale = () => {
     setIsModalVisible(false);
   };
 
-
+console.log(state)
   return (
     <>
       <Button type="primary" onClick={showModal}>
@@ -48,8 +45,7 @@ export const Modale = () => {
           <input type="text" onChange={(event) => setPlaylistName(event.target.value)} />
 
           <button
-          //  onClick={() => dispatch({ type: "ADD_PLAY_LIST_NAME", payload: { playlistName: playListName } })}
-          onClick={() => createPlaylist(playlistName, token)}
+          onClick={() => createPlaylist(playlistName, token, dispatch)}
 
             className="create-btn" >
             Create
@@ -64,15 +60,7 @@ export const Modale = () => {
               return (
                 <label className="playlist-item" >
                   <input type="checkbox"
-                    // onChange={() => dispatch({
-                    //   type: "ADD-VIDEO-TO-PLAYLIST",
-                    //   payload:
-                    //   {
-                    //     playlistName: item.playlist_name,
-                    //     videoObj: video
-                    //   }
-                    // })}
-                    onChange={() => addToPlaylist( item.playlistName,video._id, token )}
+                    onChange={() => addToPlaylist( item.playlistName,video, token, dispatch )}
                   />
                   {item.playlistName}
                 </label>
