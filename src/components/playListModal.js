@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { addToPlaylist, createPlaylist } from '../utils/forApi';
 import { usePlayList } from "../Contexts/playListContext";
 import { useAuth } from "../Contexts/authContext";
+import { InToast } from './Toast/toast';
 
 
 export const Modale = () => {
@@ -13,18 +14,19 @@ export const Modale = () => {
   const { state, dispatch, token } = useAuth();
   const [playlistName, setPlaylistName] = useState("")
   const { videoId } = useParams();
-  // const [playlistData, setPlaylistData] = useState(undefined);
+  const [toastStatus, setToastStatus] = useState(false)
 
   // Getting video details
   function getVideoDetails(videos, videoId) {
     return videos.find((video) => video.videoId === videoId);
   }
   const video = getVideoDetails(allVideosData, videoId);
-  // console.log(video)
 
   // Modal thing
   const showModal = () => {
-    setIsModalVisible(true);
+    if(token){
+      setIsModalVisible(true)
+    } 
   };
   const handleOk = () => {
     setIsModalVisible(false);
@@ -36,9 +38,11 @@ export const Modale = () => {
 console.log(state)
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={token ? showModal : () => setToastStatus(true) }>
         Add to play list
       </Button>
+      {toastStatus ? ( <div onClick={() => setToastStatus(false)}> <InToast value={true} text={"You need to login"} /> </div> ) : null}
+
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <div>
           <h3>Create a new playlist</h3>
@@ -56,7 +60,7 @@ console.log(state)
         <div>
           <h3>Add to existing playlist</h3>
           {
-            state.map(item => {
+            state?.map(item => {
               return (
                 <label className="playlist-item" >
                   <input type="checkbox"
