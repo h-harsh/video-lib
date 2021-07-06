@@ -1,5 +1,5 @@
 import {useAuth} from '../Contexts/authContext'
-import { clearHistory } from '../utils/otherFeat'
+import { clearHistory } from '../utils/history'
 
 export const History = () => {
     const {state, dispatch, token} = useAuth()

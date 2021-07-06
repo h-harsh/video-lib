@@ -1,7 +1,7 @@
 import {VideoCard} from '../components/videoCard'
 import { useAuth } from '../Contexts/authContext'
 import { usePlayList } from '../Contexts/playListContext'
-import { addToHistory } from '../utils/otherFeat'
+import { addToHistory } from '../utils/history'
 
 export const Home = () => {
     const {allVideosData} = usePlayList()

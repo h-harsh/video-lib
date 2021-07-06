@@ -34,11 +34,27 @@ export const AuthProvider = ({children}) => {
           const response = await axios.get(`${baseurl}/history`, {
             headers: { authorization: token },
           });
-          console.log(response)
+          // console.log(response)
           if (response.data.status === "success") {
             dispatch({
               type: "INITIAL_LOAD_HISTORY",
               payload: response.data.history,
+            });
+          }
+        })();
+      }, [token]);
+
+      useEffect(() => {
+        (async function() {
+          const response = await axios.get(`${baseurl}/likedVideos`, {
+            headers: { authorization: token },
+          });
+          console.log(response)
+          // console.log(response.data.likedVideos.likedVideos)
+          if (response.data.status === "success") {
+            dispatch({
+              type: "INITIAL_LOAD_LIKED_VIDEOS",
+              payload: response.data.likedVideos.likedVideos,
             });
           }
         })();

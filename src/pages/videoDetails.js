@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { baseurl } from "../utils/forApi";
 import { useAuth } from "../Contexts/authContext";
+import {LikeButton} from '../components/Buttons/like'
 
 export const VideoDetails = () => {
     const { videoId } = useParams();
@@ -41,6 +42,7 @@ export const VideoDetails = () => {
                     <p className="extra-vid" >{video.views}</p>
                     <p className="extra-vid" >{video.likes} Likes</p>
                     <Modale />
+                    <LikeButton video={video}/>
                 </div>
                 <p>{video.description}</p>
             </div>

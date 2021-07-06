@@ -14,6 +14,7 @@ export const NavBar = () => {
             <ul className="nav-list">
                 <li className="nav-items"><Link to="/playlist" >PlayLists</Link></li>
                 <li className="nav-items"><Link to="/history" >History</Link></li>
+                <li className="nav-items"><Link to="/liked" >Liked Videos</Link></li>
                 {token ? <li className="nav-items" onClick={() => logoutHandler()}> Logout</li> : null}
 
             </ul>

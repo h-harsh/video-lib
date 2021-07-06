@@ -4,6 +4,8 @@ export const reducerFunc = (state, {type, payload}) => {
             return state = payload;
         case "INITIAL_LOAD_HISTORY":
             return state = {...state, history: payload};
+        case "INITIAL_LOAD_LIKED_VIDEOS":
+            return state = {...state, likedVideos: payload }       
 
         case "ADD_PLAY_LIST_NAME":
             return state = {...state, playlists: [...state.playlists, {playlistName: payload, videos: [] } ]}
@@ -23,10 +25,17 @@ export const reducerFunc = (state, {type, payload}) => {
                 }
                 return playlist;
               })};
+
         case "ADD_TO_HISTORY":
             return state = {...state, history: [...state.history, payload]};
         case "CLEAR_HISTORY":
-            return state = {...state, history: []};          
+            return state = {...state, history: []};    
+         
+        case "ADD_TO_LIKED":
+            return state = {...state, likedVideos: [...state.likedVideos, payload]}
+        case "REMOVE_FROM_LIKED":
+            return state = {...state, likedVideos: state.likedVideos.filter(item => item._id != payload._id)}
+            
         case "LOG_OUT":
             return state= undefined
         default:

@@ -35,7 +35,7 @@ export const Modale = () => {
     setIsModalVisible(false);
   };
 
-console.log(state)
+// console.log(state)
   return (
     <>
       <Button type="primary" onClick={token ? showModal : () => setToastStatus(true) }>
