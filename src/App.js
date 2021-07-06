@@ -6,6 +6,7 @@ import { Home } from './pages/homePage'
 import { PlayList } from './pages/playList'
 import { Login } from './pages/login';
 import { SignUp } from './pages/signUp'
+import {History} from './pages/history'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/signup" element={ <SignUp /> } />
             <Route path="/:videoId" element={<VideoDetails />} />
             <Route path="/playlist" element={<PlayList />} />
+            <Route path="/history" element={<History />} />
         </Routes>
     </div>
   );

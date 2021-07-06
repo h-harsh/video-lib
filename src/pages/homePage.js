@@ -1,8 +1,11 @@
 import {VideoCard} from '../components/videoCard'
+import { useAuth } from '../Contexts/authContext'
 import { usePlayList } from '../Contexts/playListContext'
+import { addToHistory } from '../utils/otherFeat'
 
 export const Home = () => {
     const {allVideosData} = usePlayList()
+    const {state, dispatch, token} = useAuth()
 
     return(<div >
         <div style={{borderBottom: "1px solid black"}}>
@@ -15,7 +18,9 @@ export const Home = () => {
         <div className="video-card-cont" >
         { allVideosData ?
         allVideosData.map((item) => (
+            <div onClick={() => addToHistory(item , dispatch, token)} >
             <VideoCard {...item} />
+            </div>
         )) : <h2>Loading</h2>
         }
         </div>

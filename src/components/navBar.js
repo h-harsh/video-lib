@@ -13,6 +13,7 @@ export const NavBar = () => {
             <h1 className="main-title">Video Library</h1>
             <ul className="nav-list">
                 <li className="nav-items"><Link to="/playlist" >PlayLists</Link></li>
+                <li className="nav-items"><Link to="/history" >History</Link></li>
                 {token ? <li className="nav-items" onClick={() => logoutHandler()}> Logout</li> : null}
 
             </ul>

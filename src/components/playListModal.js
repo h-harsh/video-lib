@@ -60,7 +60,7 @@ console.log(state)
         <div>
           <h3>Add to existing playlist</h3>
           {
-            state?.map(item => {
+            state?.playlists?.map(item => {
               return (
                 <label className="playlist-item" >
                   <input type="checkbox"

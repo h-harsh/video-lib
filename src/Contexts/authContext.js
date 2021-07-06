@@ -12,7 +12,7 @@ export const AuthProvider = ({children}) => {
     const baseurl = "http://127.0.0.1:8000"
     const [loginState, setLoginState] = useState("")
 
-    const [state, dispatch] = useReducer(reducerFunc, []);
+    const [state, dispatch] = useReducer(reducerFunc, {});
 
     useEffect(() => {
         (async function() {
@@ -23,11 +23,28 @@ export const AuthProvider = ({children}) => {
           if (response.data.status === "success") {
             dispatch({
               type: "INITIAL_LOAD",
-              payload: response.data.playlistData.playlists,
+              payload: response.data.playlistData,
             });
           }
         })();
       }, [token]);
+
+      useEffect(() => {
+        (async function() {
+          const response = await axios.get(`${baseurl}/history`, {
+            headers: { authorization: token },
+          });
+          console.log(response)
+          if (response.data.status === "success") {
+            dispatch({
+              type: "INITIAL_LOAD_HISTORY",
+              payload: response.data.history,
+            });
+          }
+        })();
+      }, [token]);
+
+
     
      const logoutHandler = () => {
         localStorage.removeItem("token")

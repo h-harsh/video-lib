@@ -17,7 +17,7 @@ export const PlayList = () => {
       {state === undefined ? (
         <h2>Loading</h2>
       ) : (
-        state.map((item) => {
+        state.playlists?.map((item) => {
           return (
             <>
               <h2>{item.playlistName}</h2>
