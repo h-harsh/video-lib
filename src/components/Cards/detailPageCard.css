@@ -25,7 +25,6 @@
     display: flex;
     padding: 1.5rem;
     margin-left: 1.5rem;
-
 }
 .det-card-likes-section{
     display: flex;
@@ -69,11 +68,14 @@
   }
   .det-card-author-section{
     padding: 0.5rem;
+    margin: 0.5rem;
   }
   .det-card-btns{
     padding: 0.5rem;
   }
+
 }
+
 
 
 

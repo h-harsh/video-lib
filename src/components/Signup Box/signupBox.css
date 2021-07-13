@@ -28,3 +28,9 @@
         padding: 0.5rem;
     }
 }
+
+@media screen and (max-width:350px){
+    .signup-item{
+        margin: 0.5rem;
+    }
+}

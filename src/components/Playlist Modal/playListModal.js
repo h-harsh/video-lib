@@ -45,7 +45,7 @@ export const Modale = () => {
       </Button>
       {toastStatus ? ( <div onClick={() => setToastStatus(false)}> <InToast value={true} text={"You need to login"} /> </div> ) : null}
 
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Add Video To Playlist" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <div>
           <h3>Create a new playlist</h3>
           <input type="text" onChange={(event) => setPlaylistName(event.target.value)} />
