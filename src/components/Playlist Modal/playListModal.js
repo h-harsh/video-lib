@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'antd';
-import '../App.css'
+// import '../App.css'
 import { useParams } from 'react-router';
-import { addToPlaylist, createPlaylist } from '../utils/forApi';
-import { usePlayList } from "../Contexts/playListContext";
-import { useAuth } from "../Contexts/authContext";
-import { InToast } from './Toast/toast';
+import { addToPlaylist, createPlaylist } from '../../utils/forApi';
+import { usePlayList } from "../../Contexts/playListContext";
+import { useAuth } from "../../Contexts/authContext";
+import { InToast } from '../Toast/toast';
+import {  MdPlaylistAdd} from "react-icons/md";
+import './playlistModal.css'
 
 
 export const Modale = () => {
@@ -38,8 +40,8 @@ export const Modale = () => {
 // console.log(state)
   return (
     <>
-      <Button type="primary" onClick={token ? showModal : () => setToastStatus(true) }>
-        Add to play list
+      <Button className="playlist-btn" onClick={token ? showModal : () => setToastStatus(true) }>
+      <MdPlaylistAdd/>
       </Button>
       {toastStatus ? ( <div onClick={() => setToastStatus(false)}> <InToast value={true} text={"You need to login"} /> </div> ) : null}
 

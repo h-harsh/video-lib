@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { useAuth } from "../Contexts/authContext";
-import { usePlayList } from "../Contexts/playListContext";
-import { baseurl } from "../utils/forApi";
+import { useAuth } from "../../Contexts/authContext";
+import { usePlayList } from "../../Contexts/playListContext";
+import { baseurl } from "../../utils/forApi";
+import './signupBox.css'
 
 export const SignUpBox = () => {
   const { loginHandler } = useAuth();
@@ -32,34 +33,31 @@ export const SignUpBox = () => {
   };
   
   return (
-    <>
-      <h1>Sign Up</h1>
-      <label>
-        {" "}
-        Userame
+    <div className="signup-box">
         <input
+        className="signup-item"
+        placeholder="UserName"
           type="text"
           onChange={(event) => setUserName(event.target.value)}
         />
-      </label>
-      <label>
-        {" "}
-        Email
-        <input type="text" onChange={(event) => setEmail(event.target.value)} />
-      </label>
-      <label>
-        {" "}
-        Password
+        <input 
+        className="signup-item"
+        placeholder="Email"
+        type="text" onChange={(event) => setEmail(event.target.value)} />
+    
         <input
+        className="signup-item"
+        placeholder="Password"
           type="text"
           onChange={(event) => setPassword(event.target.value)}
         />
-      </label>
+    
       <button
+      className="signup-item nm-btn2 an"
         onClick={() => signUpHandler(userName, email, password, loginHandler)}
       >
-        Submit
+        Sign Up
       </button>
-    </>
+    </div>
   );
 };

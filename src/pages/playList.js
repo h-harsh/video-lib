@@ -1,56 +1,43 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { VideoCard } from "../components/videoCard";
-import { usePlayList } from "../Contexts/playListContext";
+import { HorizontalCard } from "../components/Cards/horizontalCard";
 import { useAuth } from "../Contexts/authContext";
 import { deletePlaylistHandler, deleteVideoHandler } from "../utils/forApi";
+import { FaRegWindowClose } from 'react-icons/fa'
+import { RiCloseCircleFill } from 'react-icons/ri'
 
 export const PlayList = () => {
   const { state, dispatch, token } = useAuth();
 
-  console.log(state)
-
   return (
     <>
-      <h1 className="page-title">PlayLists</h1>
-      {state === "error" && <h2>False authorization, please login</h2>}
       {state === undefined ? (
         <h2>Loading</h2>
       ) : (
         state.playlists?.map((item) => {
           return (
-            <>
-              <h2>{item.playlistName}</h2>
+            <div >
+              <div className="playlist-heading-box">
+              <h1>{item.playlistName}</h1>
               <button
-                onClick={() => deletePlaylistHandler(item.playlistName, token, dispatch)}
-              >
-                Delete playlist
+                onClick={() => deletePlaylistHandler(item.playlistName, token, dispatch)}>
+                <FaRegWindowClose/>
               </button>
+              </div>
 
               {item.videos.length > 0 ? (
-                item.videos.map((videoItem) => {
+                item.videos.map((video) => {
                   return (
-                    <>
-                      <h3>{videoItem.title}</h3>
-                      <p>{videoItem.author}</p>
-                      <button
-                        onClick={() =>
-                          deleteVideoHandler(
-                            item.playlistName,
-                            videoItem._id,
-                            token, dispatch
-                          )
-                        }
-                      >
-                        Remove videos
-                      </button>
-                    </>
+                    <div className="playlist-videos-box" >
+                      <HorizontalCard video={video} />
+                      <button  onClick={() =>
+                          deleteVideoHandler(item.playlistName,video._id,token,dispatch)}>
+                        <RiCloseCircleFill/> </button>
+                    </div>
                   );
                 })
               ) : (
                 <h2>No Videos in playlist</h2>
               )}
-            </>
+            </div>
           );
         })
       )}
