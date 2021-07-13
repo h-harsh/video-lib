@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseurl = "http://127.0.0.1:8000";
+export const baseurl = "https://fin-tube.herokuapp.com";
 
 export const deletePlaylistHandler = async (playlistName, token, dispatch) => {
   const response = await axios.delete(`${baseurl}/playlist/${playlistName}`, {

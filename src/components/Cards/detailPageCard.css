@@ -60,7 +60,7 @@
     height: 300px !important;
   }
 }
-@media screen and (min-width:360px){
+@media screen and (max-width:360px){
   .det-card-title{
     font-size: 1.7rem;
   }

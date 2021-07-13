@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useReducer,useEffect } from "react
 import axios from 'axios'
 import { useNavigate } from "react-router";
 import { reducerFunc } from "./reducerFunction";
+import { baseurl } from "../utils/forApi";
 
 const AuthContext = createContext()
 
@@ -9,7 +10,6 @@ export const AuthProvider = ({children}) => {
     const savedToken = JSON.parse(localStorage.getItem("token")) ||  null;
     const [token, setToken] = useState(savedToken)
     const navigate = useNavigate()
-    const baseurl = "http://127.0.0.1:8000"
     const [loginState, setLoginState] = useState("")
 
     const [state, dispatch] = useReducer(reducerFunc, {});
