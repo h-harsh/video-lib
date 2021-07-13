@@ -22,7 +22,7 @@
     border-right: none;
 }
 
-@media screen and (max-width:390px){
+@media screen and (max-width:450px){
     .signup-box{
         margin: 0;
         padding: 0.5rem;
