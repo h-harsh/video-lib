@@ -1,6 +1,7 @@
 .detail-card-container{
     max-width: 1000px;
     margin: auto;
+    padding: 1rem;
 }
 .det-card-title{
     font-size: 2.8rem;
@@ -12,6 +13,7 @@
     border-top: 1px solid gray;
     display: flex;
     justify-content: space-between;
+    
     
 }
 .det-card-author-img{
@@ -44,7 +46,34 @@
     padding-bottom: 3rem;
 }
 
+@media screen and (max-width:990px){
+  .det-card-title{
+    font-size: 2.4rem;
+  }
+}
 
+@media screen and (max-width:650px){
+  .det-card-title{
+    font-size: 2rem;
+  }
+  .iframe-container{
+    height: 300px !important;
+  }
+}
+@media screen and (min-width:360px){
+  .det-card-title{
+    font-size: 1.7rem;
+  }
+  .iframe-container{
+    height: 250px !important;
+  }
+  .det-card-author-section{
+    padding: 0.5rem;
+  }
+  .det-card-btns{
+    padding: 0.5rem;
+  }
+}
 
 
 

@@ -24,12 +24,6 @@ export const SideBar = ({ status, showSideBar }) => {
         <li onClick={showSideBar}>
           <Link to="/liked"> <BiLike/> Liked Videos</Link>
         </li>
-        <li onClick={showSideBar}>
-          <Link to="/liked"> <BiLike/> Login</Link>
-        </li>
-        <li onClick={showSideBar}>
-          <Link to="/liked"> <BiLike/> Sign Up</Link>
-        </li>
       </ul>
     </nav>
   );
