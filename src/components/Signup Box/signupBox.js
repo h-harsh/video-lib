@@ -12,7 +12,7 @@ export const SignUpBox = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const signUpHandler = async (userName, password, email, loginHandler) => {
+  const signUpHandler = async (userName, email,password,  loginHandler) => {
       try{
         const response = await axios.post(
             `${baseurl}/user/signup`,
