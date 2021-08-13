@@ -30,27 +30,14 @@ export const LoginBox = () => {
       >
         Login
       </button>
+      <button
+        className="login-item nm-btn2 an"
+        onClick={() => loginHandler('h-harsh', 'harsh')}
+      >
+        Login as Guest
+      </button>
       <h2 className="login-item ">{loginState}</h2>
     </div>
   );
 };
 
-{
-  /* <div>
-      <label>Username</label>
-        <input
-          type="text"
-          onChange={(event) => setUserName(event.target.value)}
-        />
-        
-      <label>Password</label>
-      <input
-        type="password"
-        onChange={(event) => setPassword(event.target.value)}
-      />
-
-      <button onClick={() => loginHandler(userName, password)}>Login</button>
-      <h2>{loginState}</h2>
-      <button onClick={logoutHandler}>Log out</button>
-    </div> */
-}
