@@ -28,7 +28,9 @@
 }
 .det-card-likes-section{
     display: flex;
-
+}
+.det-card-likes-section p{
+  padding: 0.5rem;
 }
 .iframe-container{
     height: 500px !important;

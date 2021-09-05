@@ -9,6 +9,7 @@ import { SignUp } from "./pages/signUp";
 import { History } from "./pages/history";
 import { LikevIdeos } from "./pages/likedVideos";
 import {PrivateRoute} from './pages/privateRoute'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   return (

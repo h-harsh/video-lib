@@ -23,7 +23,7 @@ export const DetailPageCard = ({ video }) => {
           <div className="detail-card-sub-container">
             <div>
              <div className="det-card-author-section" >
-                <img className="det-card-author-img" src={video.authorImg} />
+                <img className="det-card-author-img" src={video.authorImg} alt=" not available" />
                 <div style={{marginLeft: "1rem"}}>
                   <p>{video.author}</p>
                   <p>24.5k Subscribers</p>

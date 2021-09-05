@@ -41,7 +41,7 @@ export const addToPlaylist = async (playlistName, video, token, dispatch) => {
   }
 };
 
-export const createPlaylist = async (playlistName, token, dispatch) => {
+export const createPlaylist = async (playlistName, token, dispatch, video, setPlaylistName) => {
   try {
     const response = await axios.post(
       `${baseurl}/playlist/${playlistName}`,
@@ -52,6 +52,10 @@ export const createPlaylist = async (playlistName, token, dispatch) => {
     );
     if(response.status === 200){
       dispatch({ type: "ADD_PLAY_LIST_NAME", payload: playlistName })
+      document.getElementById('add-video').value = ""
+      setPlaylistName('')
+      addToPlaylist(playlistName, video, token, dispatch)
+      
     }
   } catch (error) {
     console.log(error.response);
