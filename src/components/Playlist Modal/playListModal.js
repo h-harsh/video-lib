@@ -8,6 +8,7 @@ import { useAuth } from "../../Contexts/authContext";
 import { InToast } from "../Toast/toast";
 import { MdPlaylistAdd } from "react-icons/md";
 import "./playlistModal.css";
+import { toast } from "react-toastify";
 
 export const Modale = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -39,18 +40,18 @@ console.log(state)
 
   return (
     <>
-      <Button
+      <button
         className="playlist-btn"
-        onClick={token ? showModal : () => setToastStatus(true)}
+        onClick={token ? showModal : () => toast.error("You need to Login")}
       >
         <MdPlaylistAdd />
-      </Button>
-      {toastStatus ? (
+      </button>
+      {/* {toastStatus ? (
         <div onClick={() => setToastStatus(false)}>
           {" "}
           <InToast value={true} text={"You need to login"} />{" "}
         </div>
-      ) : null}
+      ) : null} */}
 
       <Modal
         title="Add Video To Playlist"
