@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Modal, Button } from "antd";
 // import '../App.css'
 import { useParams } from "react-router";
-import { addToPlaylist, createPlaylist } from "../../utils/forApi";
+import { addToPlaylist, createPlaylist, deleteVideoHandler } from "../../utils/forApi";
 import { usePlayList } from "../../Contexts/playListContext";
 import { useAuth } from "../../Contexts/authContext";
 import { InToast } from "../Toast/toast";
@@ -81,9 +81,10 @@ console.log(state)
                 <input
                   type="checkbox"
                   checked={item.videos.find(item2 => item2._id === video._id) ? true : false}
-                  onChange={() =>
-                    addToPlaylist(item.playlistName, video, token, dispatch)
-                  }
+                  onChange={() => item.videos.find(item2 => item2._id === video._id) ? deleteVideoHandler(item.playlistName, video._id, token, dispatch) : addToPlaylist(item.playlistName, video, token, dispatch)}
+                  // onChange={() =>
+                  //   addToPlaylist(item.playlistName, video, token, dispatch)
+                  // }
                 />
                 {item.playlistName}
               </label>

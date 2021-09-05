@@ -10,6 +10,8 @@ import { History } from "./pages/history";
 import { LikevIdeos } from "./pages/likedVideos";
 import {PrivateRoute} from './pages/privateRoute'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
           <PrivateRoute path="/playlist" element={<PlayList />} />
           <PrivateRoute path="/history" element={<History />} />
           <PrivateRoute path="/liked" element={<LikevIdeos />} />
+          
         </Routes>
+        <ToastContainer position="bottom-right" theme="dark" autoClose={3000} />
       </div>
   );
 }
