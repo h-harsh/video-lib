@@ -1,8 +1,9 @@
 import axios from "axios";
 import {  toast } from 'react-toastify';
 
-export const baseurl = "https://fin-tube.herokuapp.com";
+// export const baseurl = "https://fin-tube.herokuapp.com";
 // export const baseurl = "http://127.0.0.1:8080";
+export const baseurl = "https://server-fin-tube.harshporwal1.repl.co";
 
 export const deletePlaylistHandler = async (playlistName, token, dispatch) => {
   const toastId =toast.loading("Deleting Playlist")
