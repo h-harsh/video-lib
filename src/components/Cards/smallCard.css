@@ -1,0 +1,36 @@
+.small-card{
+    display: flex;
+    flex-direction: column;
+    /* height: 20rem; */
+    width: 15rem;
+    color: black;
+    margin: 0.5rem 1rem;
+}
+
+.small-card:hover{
+    box-shadow: 2px 2px 6px #888888;
+    transition: 0.4s;
+}
+
+.small-card-data{
+    display: flex;
+    margin-top: 0.5rem;
+}
+.titleAuthor{
+    text-align: left;
+    margin-left: 0.4rem;
+}
+
+.authorImg{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+.author{
+    color: gray;
+    font-size: small;
+    margin-top: 0.3rem;
+}
+div p{
+    margin-bottom: 0 !important;
+}

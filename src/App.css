@@ -1,38 +1,81 @@
+@import '~antd/dist/antd.css';
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* outer box signup */
+.outer-cont{
+  margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loader-prod {
+  height: 100vh;
+  font-size: 6rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-family: "Reggae One", cursive;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* PLaylist page */
+.cta{
+  border-radius: 10%;
+  float: right;
+  padding: 0.4rem 0.8rem;
+}
+.playlist-name{
+  font-size: 1.5rem;
+}
+.page-title{
+  border-bottom: 1px solid black;
+  font-style: italic;
+  text-align: left;
+  margin-left: 5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Modal */
+.playlist-item{
+  display: block;
+}
+.create-btn{
+  padding: 0.5rem 1rem;
+}
+
+/* Video card page
+.main-out{
+    display: 'flex'; 
+    flex-direction: 'column';
+    justify-content: 'center';
+} */
+
+/* playlist page */
+.playlist-heading-box{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+
+}
+.playlist-heading-box h1{
+  font-weight: bold;
+}
+.playlist-heading-box button{
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.playlist-videos-box{
+  position: relative;
+}
+
+.playlist-videos-box button{
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  
 }

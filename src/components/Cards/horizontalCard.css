@@ -1,0 +1,47 @@
+.long-card{
+    display: inline-flex;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0.5rem 1rem;
+    max-width: 50rem;
+}
+.long-card:hover{
+    box-shadow: 2px 2px 6px #888888;
+    transition: 0.4s;
+}
+.long-card-data{
+    margin-left: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.author-detail-long{
+    display: flex;
+}
+.author{
+    font-size: medium;
+    font-weight: 300;
+}
+
+.thumbnail-long{
+    max-height: 12rem;
+    width: 20rem;
+}
+.long-desc{
+    font-size: 0.8rem;
+    font-weight: 100 !important;
+    text-align: left;
+    margin-bottom: 0.7rem !important;
+}
+*, *::before, *::after {
+    box-sizing: content-box;
+}
+
+@media screen and (max-width: 825px){
+    .long-card{
+        flex-direction: column;
+        max-width: 20rem;
+    }
+}
