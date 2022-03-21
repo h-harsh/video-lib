@@ -1,13 +1,18 @@
 .long-card{
     display: inline-flex;
-    color: black;
+    color: var(--textColor);
     font-size: 1.3rem;
     font-weight: bold;
     margin: 0.5rem 1rem;
     max-width: 50rem;
+    border-radius: 10px;
+    color: var(--textColor);
+
 }
 .long-card:hover{
-    box-shadow: 2px 2px 6px #888888;
+    /* box-shadow: 2px 2px 6px #888888; */
+    box-shadow: #00000040 0 8px 25px;
+
     transition: 0.4s;
 }
 .long-card-data{
@@ -35,13 +40,34 @@
     text-align: left;
     margin-bottom: 0.7rem !important;
 }
-*, *::before, *::after {
-    box-sizing: content-box;
+
+.author{
+    padding-left: 0.5rem;
 }
 
 @media screen and (max-width: 825px){
     .long-card{
         flex-direction: column;
-        max-width: 20rem;
+        max-width: 100%;
     }
 }
+@media screen and (max-width: 500px){
+    .long-card{
+        flex-direction: column;
+        max-width: 17.3rem;
+        /* background-color: red; */
+        margin: auto;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    .thumbnail-long{
+        width: 100%;
+    }
+    .long-desc{
+        display: none;
+    }
+    .video-title-ldc{
+        font-size: 1rem;
+    }
+}
+

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useAuth } from "../Contexts/authContext";
 import { usePlayList } from "../Contexts/playListContext";
 import { addToHistory } from "../utils/history";
@@ -6,29 +7,32 @@ import Loader from "react-loader-spinner";
 
 export const Home = () => {
   const { allVideosData } = usePlayList();
-  const { state, dispatch, token } = useAuth();
+  const {  dispatch, token } = useAuth();
 
   return (
     <div>
-      <div>
-        {allVideosData ? (
-          allVideosData.map((item, i) => (
-            <a onClick={() => addToHistory(item, dispatch, token)}>
+      {/* <div> */}
+
+      {allVideosData ? (
+        <div className="card-holder">
+          {allVideosData.map((item, i) => (
+            <a href="#" onClick={() => addToHistory(item, dispatch, token)}>
               <SmallCard {...item} />
             </a>
-          ))
-        ) : (
-          <div className="loader-prod">
-            <Loader
+          ))}
+        </div>
+      ) : (
+        <div className="loader-prod">
+          <Loader
             type="Puff"
-            color="black"
+            color="#5c415d"
             height={100}
             width={100}
-            timeout={5000} 
+            timeout={5000}
           />
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+      {/* </div> */}
     </div>
   );
 };

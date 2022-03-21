@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./smallCard.css";
-import { TiTick } from "react-icons/ti";
 
 export const SmallCard = ({
   videoId,
@@ -13,15 +12,15 @@ export const SmallCard = ({
   description,
 }) => {
   return (
-    <div style={{display: "inline-block"}} >
+    <div style={{display: "inline-block"}}  >
       <Link to={`/${videoId}`}>
         <div className="small-card">
-            <img src={thumbnail} />
+            <img src={thumbnail} alt="error loading" />
             <div className="small-card-data" >
-                <img className="authorImg" src={authorImg} />
+                <img className="authorImg" src={authorImg} alt="error-loading" />
                 <div className="titleAuthor">
-                    <p>{title}</p>
-                    <p className="author" >{author} <TiTick /> </p>
+                    <p>{title.slice(0,60)}</p>
+                    {/* <p className="author" >{author} <TiTick /> </p> */}
                 </div>
             </div>
         </div>

@@ -1,0 +1,87 @@
+/* Playlist Page */
+
+.delete-dibba-big {
+  color: var(--secondaryColor);
+  color: white;
+  font-size: 2rem;
+}
+.delete-dibba-big:hover {
+  color: var(--primaryColor);
+}
+.playlist-heading-box {
+  /* margin-top: 1rem; */
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--secondaryColor);
+}
+.playlist-heading-box h1 {
+  font-weight: bold;
+  margin: auto 0;
+  color: var(--textColor);
+  color: white;
+}
+.playlist-heading-box button {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.playlist-videos-box {
+  position: relative;
+  /* border: 5px solid black; */
+  display: flex;
+}
+
+.delete-dibba-small {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: auto;
+}
+.delete-dibba-small:hover {
+  color: var(--primaryColor);
+}
+
+.each-playlist {
+  /* background-color: yellow; */
+  width: 65%;
+  margin: 1rem auto;
+}
+
+@media screen and (max-width: 500px) {
+    
+  .delete-dibba-small {
+    position: absolute;
+    top: 0.7rem;
+    right: 1rem;
+    z-index: 99;
+    background-color: var(--bgColor);
+    color: var(--primaryColor);
+    border-radius: 100%;
+    padding: 0.5rem 0.5rem 0.1rem 0.5rem;
+    font-size: 1rem;
+  }
+  .playlist-heading-box{
+      height: 3rem;
+      align-items: center;
+      align-content: center;
+  }
+  .playlist-heading-box h1, .delete-dibba-big-icon{
+      font-size: 1.2rem;
+  }
+  .delete-dibba-big{
+      margin-top: -0.6rem;
+  }
+  .delete-dibba-big-icon{
+      font-size: 1.5rem;
+  }
+  
+}
+@media screen and (max-width: 350px) {
+    
+    .each-playlist{
+        width:80%
+    }
+  
+}

@@ -3,7 +3,7 @@
     padding: 0;
 }
 .nav-menu{
-    background-color: #060b26;
+    background-color: var(--secondaryColor);
     color: white;
     display: flex;
     flex-direction: column;

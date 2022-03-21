@@ -1,8 +1,8 @@
+import "./pages.css";
 import { HorizontalCard } from "../components/Cards/horizontalCard";
 import { useAuth } from "../Contexts/authContext";
 import { deletePlaylistHandler, deleteVideoHandler } from "../utils/forApi";
-import { FaRegWindowClose } from 'react-icons/fa'
-import { RiCloseCircleFill } from 'react-icons/ri'
+import { AiFillDelete } from "react-icons/ai";
 
 export const PlayList = () => {
   const { state, dispatch, token } = useAuth();
@@ -12,25 +12,40 @@ export const PlayList = () => {
       {state === undefined ? (
         <h2>Loading</h2>
       ) : (
-        state.playlists?.map((item) => {
+        state.playlists?.map((item, i) => {
           return (
-            <div >
+            <div className="each-playlist only-card" >
               <div className="playlist-heading-box">
-              <h1>{item.playlistName}</h1>
-              <button
-                onClick={() => deletePlaylistHandler(item.playlistName, token, dispatch)}>
-                <FaRegWindowClose/>
-              </button>
+                <h1>{i+1}.</h1>
+                <h1>{item.playlistName}</h1>
+                <button
+                  className="delete-dibba-big"
+                  onClick={() =>
+                    deletePlaylistHandler(item.playlistName, token, dispatch)
+                  }
+                >
+                  <AiFillDelete className="delete-dibba-big-icon" />
+                </button>
               </div>
 
               {item.videos.length > 0 ? (
                 item.videos.map((video) => {
                   return (
-                    <div className="playlist-videos-box" >
+                    <div className="playlist-videos-box">
                       <HorizontalCard video={video} />
-                      <button  onClick={() =>
-                          deleteVideoHandler(item.playlistName,video._id,token,dispatch)}>
-                        <RiCloseCircleFill/> </button>
+                      <button
+                        className="delete-dibba-small"
+                        onClick={() =>
+                          deleteVideoHandler(
+                            item.playlistName,
+                            video._id,
+                            token,
+                            dispatch
+                          )
+                        }
+                      >
+                        <AiFillDelete size={22} />{" "}
+                      </button>
                     </div>
                   );
                 })

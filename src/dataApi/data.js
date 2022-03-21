@@ -32,7 +32,7 @@
     },
     {
         videoId: "rT-kPOy4irM",
-        title: "Top 3 Tools For Fundamental Analysis Of Growth Stocks - Ep. 3 ",
+        title: "Top 3 Tools For Fundamental Analysis Of Stocks - Ep.3 ",
         views: "27455* Views",
         author: "Shashank Udupa",
         authorImg: " https://yt3.ggpht.com/ytc/AAUvwngcam1qyJtXZSiM5ok78HKog6FVlMBPqd6dM01fGQ=s176-c-k-c0x00ffffff-no-rj-mo",

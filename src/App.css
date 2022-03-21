@@ -1,24 +1,20 @@
 @import '~antd/dist/antd.css';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  object-fit: cover;
+}
 .App {
   text-align: center;
+  /* background-color: var(--secondaryColor); */
 }
 /* outer box signup */
-.outer-cont{
-  margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-}
-.loader-prod {
-  height: 100vh;
-  font-size: 6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Reggae One", cursive;
-}
 
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
 
 /* PLaylist page */
 .cta{
@@ -53,29 +49,3 @@
 } */
 
 /* playlist page */
-.playlist-heading-box{
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-around;
-
-}
-.playlist-heading-box h1{
-  font-weight: bold;
-}
-.playlist-heading-box button{
-  background-color: transparent;
-  border: none;
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-.playlist-videos-box{
-  position: relative;
-}
-
-.playlist-videos-box button{
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  
-}

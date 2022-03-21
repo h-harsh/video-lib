@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useAuth } from "../../Contexts/authContext";
 import { addToLiked, removeFromLiked } from "../../utils/likedVideos";
 import { AiFillLike, AiOutlineLike} from "react-icons/ai";

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router";
 import { reducerFunc } from "./reducerFunction";
 import { baseurl } from "../utils/forApi";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext()
 
@@ -70,6 +71,7 @@ export const AuthProvider = ({children}) => {
     }
 
     const loginHandler  = async (userName, password) => {
+      const toastId = toast.loading("Loggin in");
         try{
             const response = await axios.post(`${baseurl}/user/login`,
          {userName, password},
@@ -79,13 +81,32 @@ export const AuthProvider = ({children}) => {
         })
         setLoginState(response.data.status)
         if(response.data.status === "login success"){ 
+          toast.update(toastId, {
+            render: "You are now Logged in",
+            type: "success",
+            isLoading: false,
+            autoClose: 2000,
+          });
             localStorage.setItem("token", JSON.stringify( response.data.token));
             // localStorage.setItem("login", JSON.stringify({loginStatus: true, token: response.data.token}));
             setToken(response.data.token)
             setLoginState("login success")
             return navigate("/")
+        }else{
+          toast.update(toastId, {
+            render: "Login Error",
+            type: "success",
+            isLoading: false,
+            autoClose: 2000,
+          });
         }
         }catch(error){
+          toast.update(toastId, {
+            render: "Technical Error, Retry",
+            type: "success",
+            isLoading: false,
+            autoClose: 2000,
+          });
             console.log(error.response)
             console.log(error.response.data.status)
         }

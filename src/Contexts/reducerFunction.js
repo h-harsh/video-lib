@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const reducerFunc = (state, {type, payload}) => {
     switch (type) {
         case "INITIAL_LOAD":

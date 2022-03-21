@@ -3,4 +3,5 @@
     border: none;
     background-color: whitesmoke;
     cursor: pointer;
+    color: var(--secondaryColor);
 }

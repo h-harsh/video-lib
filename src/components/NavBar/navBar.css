@@ -1,9 +1,20 @@
 .nav-itm  a{
-    color: black !important;
+    color: white !important;
 }
-
+#myTopNav{
+    background-color: var(--primaryColor);
+    box-shadow: none;
+    color: white;
+    overflow: hidden;
+}
 @media screen and (max-width: 460px){
     .resp {
         display: none;
     }
+}
+.new-btns{
+    /* background-color: red; */
+    margin: 0;
+    padding: 0.95rem;
+    
 }

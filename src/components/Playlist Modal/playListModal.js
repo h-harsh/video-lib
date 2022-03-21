@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Modal, Button } from "antd";
-// import '../App.css'
+import React, {  useState } from "react";
+import { Modal } from "antd";
 import { useParams } from "react-router";
-import { addToPlaylist, createPlaylist, deleteVideoHandler } from "../../utils/forApi";
+import {
+  addToPlaylist,
+  createPlaylist,
+  deleteVideoHandler,
+} from "../../utils/forApi";
 import { usePlayList } from "../../Contexts/playListContext";
 import { useAuth } from "../../Contexts/authContext";
-import { InToast } from "../Toast/toast";
 import { MdPlaylistAdd } from "react-icons/md";
 import "./playlistModal.css";
 import { toast } from "react-toastify";
+import { SecondaryButton } from "../../New Components";
 
 export const Modale = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -16,15 +19,13 @@ export const Modale = () => {
   const { state, dispatch, token } = useAuth();
   const [playlistName, setPlaylistName] = useState("");
   const { videoId } = useParams();
-  const [toastStatus, setToastStatus] = useState(false);
-  const [count, setCount ] = useState(0)
 
   // Getting video details
   function getVideoDetails(videos, videoId) {
     return videos.find((video) => video.videoId === videoId);
   }
   const video = getVideoDetails(allVideosData, videoId);
-console.log(state)
+  console.log(state);
   // Modal thing
   const showModal = () => {
     if (token) {
@@ -39,10 +40,11 @@ console.log(state)
   };
 
   return (
-    <>
+    <div className="modal-outer">
       <button
         className="playlist-btn"
         onClick={token ? showModal : () => toast.error("You need to Login")}
+        style={{ color: "#5c415d" }}
       >
         <MdPlaylistAdd />
       </button>
@@ -58,31 +60,56 @@ console.log(state)
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        bodyStyle={{ backgroundColor: "#f6f7eb" }}
+        footer={null}
       >
-        <div>
-          <h3>Create a new playlist</h3>
+        <div style={{textAlign:'center'}} >
+          <h3 className="modal-sub-title" >Create a new playlist</h3>
           <input
-            type="text" id="add-video" 
+            className="input-element-modal"
+            type="text"
+            id="add-video"
             onChange={(event) => setPlaylistName(event.target.value)}
           />
 
-          <button
-            onClick={() => createPlaylist(playlistName, token, dispatch, video, setPlaylistName)}
-            className="create-btn"
-          >
-            Create
-          </button>
+          <SecondaryButton
+            text="Create"
+            clickHandler={() =>
+              createPlaylist(
+                playlistName,
+                token,
+                dispatch,
+                video,
+                setPlaylistName
+              )
+            }
+          />
         </div>
         <br />
-        <div>
-          <h3>Add to existing playlist</h3>
+        <h3 style={{margin:'0.5rem', textAlign:'center'}} >Or</h3>
+        <div style={{textAlign:'center'}}>
+          <h3 className="modal-sub-title" >Add to existing playlist</h3>
           {state?.playlists?.map((item) => {
             return (
               <label className="playlist-item">
                 <input
+                  className="input-box"
                   type="checkbox"
-                  checked={item.videos.find(item2 => item2._id === video._id) ? true : false}
-                  onChange={() => item.videos.find(item2 => item2._id === video._id) ? deleteVideoHandler(item.playlistName, video._id, token, dispatch) : addToPlaylist(item.playlistName, video, token, dispatch)}
+                  checked={
+                    item.videos.find((item2) => item2._id === video._id)
+                      ? true
+                      : false
+                  }
+                  onChange={() =>
+                    item.videos.find((item2) => item2._id === video._id)
+                      ? deleteVideoHandler(
+                          item.playlistName,
+                          video._id,
+                          token,
+                          dispatch
+                        )
+                      : addToPlaylist(item.playlistName, video, token, dispatch)
+                  }
                   // onChange={() =>
                   //   addToPlaylist(item.playlistName, video, token, dispatch)
                   // }
@@ -93,7 +120,7 @@ console.log(state)
           })}
         </div>
       </Modal>
-    </>
+    </div>
   );
 };
 
