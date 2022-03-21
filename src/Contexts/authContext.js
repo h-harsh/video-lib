@@ -108,7 +108,7 @@ export const AuthProvider = ({children}) => {
             autoClose: 2000,
           });
             console.log(error.response)
-            console.log(error.response.data.status)
+            // console.log(error.response.data.status)
         }
     }
     return(

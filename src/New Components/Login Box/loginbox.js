@@ -1,6 +1,6 @@
 import "./loginBox.css";
 import logo from "../../logo.png";
-import loginImage from "./login.svg";
+import loginImage from "./login3.svg";
 import { PrimaryButton, SecondaryButton } from "..";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ const LoginBox = () => {
         <div className=" lgpagelogo-cont">
           <img className="nblogo-img" src={logo} alt="" />
         </div>
-        <h4 className="book-tagline" >Welcome to Goa Singham</h4>
+        <h4 className="book-tagline" >Life is easier if you watch  UTube</h4>
         <div className="login-data-sub-box">
           <div className="each-data-cont">
             <p>Username or Email</p>

@@ -89,6 +89,8 @@ export const Modale = () => {
         <h3 style={{margin:'0.5rem', textAlign:'center'}} >Or</h3>
         <div style={{textAlign:'center'}}>
           <h3 className="modal-sub-title" >Add to existing playlist</h3>
+
+          <div className="playlist-item-cont" >
           {state?.playlists?.map((item) => {
             return (
               <label className="playlist-item">
@@ -118,6 +120,7 @@ export const Modale = () => {
               </label>
             );
           })}
+          </div>
         </div>
       </Modal>
     </div>

@@ -6,6 +6,7 @@ import './navBar.css'
 import { FaBars, FaUserPlus } from 'react-icons/fa'
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { SecondaryButton, TertiaryButton} from '../../New Components'
+import logo from '../../logo.png'
 
 
 export const NavBar = () => {
@@ -20,8 +21,10 @@ export const NavBar = () => {
           <li className="nav-itm nav-itm-text" onClick={showSideBar}>
             <FaBars/>
           </li>
-          <li className="nav-itm nav-itm-text">
-            <Link to="/">FinTube</Link>
+          <li className="nav-itm nav-itm-text logo-nav-barka-cont">
+            <Link to="/">
+              <img className="logo-nav-barka " alt="Resource Error" src={logo}/>
+            </Link>
           </li>
 
           {!token ? (

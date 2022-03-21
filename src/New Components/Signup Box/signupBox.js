@@ -14,6 +14,8 @@ const SignUpBox = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
+ 
+
   return (
     <div className="login-container only-card">
       <div className="login-image-container">
@@ -25,7 +27,7 @@ const SignUpBox = () => {
         <div className=" lgpagelogo-cont">
           <img className="nblogo-img" src={logo} alt="" />
         </div>
-        <h4 className="book-tagline">Welcome to Goa Singham</h4>
+        <h4 className="book-tagline">Life is easier if you watch UTube</h4>
         <div className="login-data-sub-box">
           <div className="each-data-cont">
             <p>Username</p>
@@ -54,15 +56,16 @@ const SignUpBox = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
+          
         </div>
         <div className="for-login-btn-cont">
-          <PrimaryButton
-            text="Register"
-            clickHandler={() =>
-              signUpHandler(userName, email, password, loginHandler)
-            }
-          />
-        </div>
+            <PrimaryButton
+              text="Register"
+              clickHandler={() =>
+                signUpHandler(userName, email, password, loginHandler)
+              }
+            />
+          </div>
       </div>
     </div>
   );
